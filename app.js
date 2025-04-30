@@ -4,10 +4,6 @@ const authorRouter = require("./routes/authorRouter");
 const bookRouter = require("./routes/bookRouter");
 const indexRouter = require("./routes/indexRouter");
 
-app.use((req, res, next) => {
-  throw new Error("Oh no!");
-});
-
 app.use("/authors", authorRouter);
 app.use("/books", bookRouter);
 app.use("/", indexRouter);
