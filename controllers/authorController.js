@@ -1,21 +1,17 @@
 const db = require("../db");
+const asyncHandler = require("express-async-handler");
 
-async function getAuthorById(req, res) {
+const getAuthorById = asyncHandler(async (req, res) => {
   const { authorId } = req.params; //route parameter extracted
 
-  try {
-    const author = await db.getAuthorById(Number(authorId)); //db is accessed
+  const author = await db.getAuthorById(Number(authorId)); //db is accessed
 
-    if (!author) {
-      res.status(404).send("Author not found!");
-      return;
-    }
-
-    res.send(`Author name: ${author.name}`); // result is returned
-  } catch (error) {
-    console.error(`Error retrieving author:`, error);
-    res.status(500).send("Internal server error");
+  if (!author) {
+    res.status(404).send("Author not found!");
+    return;
   }
-}
+
+  res.send(`Author name: ${author.name}`); // result is returned
+});
 
 module.exports = { getAuthorById };
