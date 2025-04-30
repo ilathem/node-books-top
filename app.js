@@ -11,7 +11,7 @@ app.use("/", indexRouter);
 app.use((err, req, res, next) => {
   // catch all error middleware function
   console.error(err);
-  res.status(500).send(err.message);
+  res.status(err.statusCode || 500).send(err.message);
 });
 
 const PORT = 3000;
