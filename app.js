@@ -4,6 +4,10 @@ const authorRouter = require("./routes/authorRouter");
 const bookRouter = require("./routes/bookRouter");
 const indexRouter = require("./routes/indexRouter");
 
+app.use((req, res, next) => {
+  throw new Error("Oh no!");
+});
+
 app.use("/authors", authorRouter);
 app.use("/books", bookRouter);
 app.use("/", indexRouter);
@@ -11,7 +15,7 @@ app.use("/", indexRouter);
 app.use((err, req, res, next) => {
   // catch all error middleware function
   console.error(err);
-  res.status(500).send(err);
+  res.status(500).send(err.message);
 });
 
 const PORT = 3000;
