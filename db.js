@@ -27,4 +27,4 @@ async function getBookById(bookId) {
   return books.find((book) => book.id === bookId);
 }
 
-module.exports = { getAuthorById, getBookById };
+module.exports = { getAllBooks, getAuthorById, getBookById };
