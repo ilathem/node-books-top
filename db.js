@@ -10,6 +10,8 @@ const books = [
   { id: 3, name: "Thus Spoke Zarathustra" },
 ];
 
+// todo: implement getAllAuthors
+
 async function getAllBooks() {
   let booksStr = "";
   for (let i = 0; i < books.length; i++) {

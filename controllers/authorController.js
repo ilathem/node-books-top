@@ -2,6 +2,8 @@ const db = require("../db");
 const asyncHandler = require("express-async-handler");
 const CustomNotFoundError = require("../error/CustomNotFoundError");
 
+// todo: implement getAllAuthors
+
 const getAuthorById = asyncHandler(async (req, res) => {
   const { authorId } = req.params; //route parameter extracted
 
