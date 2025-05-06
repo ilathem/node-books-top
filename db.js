@@ -10,6 +10,15 @@ const books = [
   { id: 3, name: "Thus Spoke Zarathustra" },
 ];
 
+async function getAllBooks() {
+  let booksStr = "";
+  for (let i = 0; i < books.length; i++) {
+    const bookStr = `[ID: ${books.id} - TITLE: ${books.name}]\n`;
+    booksStr += bookStr;
+  }
+  return booksStr;
+}
+
 async function getAuthorById(authorId) {
   return authors.find((author) => author.id === authorId);
 }
