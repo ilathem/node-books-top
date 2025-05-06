@@ -13,7 +13,7 @@ const books = [
 async function getAllBooks() {
   let booksStr = "";
   for (let i = 0; i < books.length; i++) {
-    const bookStr = `[ID: ${books.id} - TITLE: ${books.name}]\n`;
+    const bookStr = `[ID: ${books[i].id} - TITLE: ${books[i].name}]\n`;
     booksStr += bookStr;
   }
   return booksStr;

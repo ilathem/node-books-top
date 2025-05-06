@@ -12,7 +12,7 @@ const getAllBooks = asyncHandler(async (req, res) => {
   if (!books) throw new CustomNotFoundError("No books in the database!");
 
   // send books back in response
-  res.send(`Books: ${books}`);
+  res.send(`Books:\n${books}`);
 });
 
 const getBookById = asyncHandler(async (req, res) => {
