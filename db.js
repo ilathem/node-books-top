@@ -4,8 +4,6 @@ const authors = [
   { id: 3, name: "Jason" },
 ];
 
-// todo: add books
-
 const books = [
   { id: 1, name: "The Silmarillion" },
   { id: 2, name: "Plato's Republic" },
