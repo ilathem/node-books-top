@@ -27,4 +27,4 @@ const getBookById = asyncHandler(async (req, res) => {
   res.send(`Book name: ${book.name}`); // result is returned
 });
 
-module.exports = { getBookById };
+module.exports = { getBookById, getAllBooks };
