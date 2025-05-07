@@ -10,7 +10,14 @@ const books = [
   { id: 3, name: "Thus Spoke Zarathustra" },
 ];
 
-// todo: implement getAllAuthors
+async function getAllAuthors() {
+  let authorsStr = "";
+  for (let i = 0; i < authors.length; i++) {
+    const authorStr = `[ID: ${authors[i].id} - TITLE: ${authors[i].name}]\n`;
+    authorsStr += authorStr;
+  }
+  return authorsStr;
+}
 
 async function getAllBooks() {
   let booksStr = "";
@@ -29,4 +36,4 @@ async function getBookById(bookId) {
   return books.find((book) => book.id === bookId);
 }
 
-module.exports = { getAllBooks, getAuthorById, getBookById };
+module.exports = { getAllBooks, getAuthorById, getBookById, getAllAuthors };
