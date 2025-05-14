@@ -7,6 +7,10 @@ const links = [
   { href: 'about', text: 'About' },
 ];
 
-indexRouter.get('/', (req, res) => res.render('index', { links: links }));
+const users = ['Rose', 'Cake', 'Biff'];
+
+indexRouter.get('/', (req, res) =>
+  res.render('index', { links: links, users: users })
+);
 
 module.exports = indexRouter;
