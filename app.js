@@ -1,18 +1,23 @@
-const express = require("express");
+const express = require('express');
 const app = express();
-const authorRouter = require("./routes/authorRouter");
-const bookRouter = require("./routes/bookRouter");
-const indexRouter = require("./routes/indexRouter");
+const authorRouter = require('./routes/authorRouter');
+const bookRouter = require('./routes/bookRouter');
+const indexRouter = require('./routes/indexRouter');
 // import path commonjs module
-const path = require("node:path");
+const path = require('node:path');
 
 // tell app to use ejs
-app.set("views", path.join(__dirname, "views"));
-app.set("view engine", "ejs");
+app.set('views', path.join(__dirname, 'views'));
+app.set('view engine', 'ejs');
 
-app.use("/authors", authorRouter);
-app.use("/books", bookRouter);
-app.use("/", indexRouter);
+// tell app where to find static assets
+const assetsPath = path.join(__dirname, 'public');
+// middleware function that says static assets will be in public/
+app.use(express.static(assetsPath));
+
+app.use('/authors', authorRouter);
+app.use('/books', bookRouter);
+app.use('/', indexRouter);
 
 app.use((err, req, res, next) => {
   // catch all error middleware function
